@@ -296,6 +296,10 @@ void ArmorDetector::getDistance(Armor & a) {
 }
 
 unsigned int ArmorDetector::getID(cv::Mat & src, Armor & a){
+#ifndef USE_ID
+	a.id = 2;
+	return a.id;
+#else
 	if (a.type == Armor::SmallArmor) {
 		double startIDtime = cv::getTickCount();
 		cv::Mat pic(64, 64, CV_8UC3);
@@ -327,9 +331,6 @@ unsigned int ArmorDetector::getID(cv::Mat & src, Armor & a){
 			}
 			SVMtrainMat.convertTo(SVMtrainMat, CV_32FC1);
 			a.id = (unsigned int)IDclassifier_small->predict(SVMtrainMat);
-#ifndef USE_ID
-			a.id = 2;
-#endif 
 		}
 		if(a.id == 8)
 			a.id =0;
@@ -365,9 +366,6 @@ unsigned int ArmorDetector::getID(cv::Mat & src, Armor & a){
 			}
 			SVMtrainMat.convertTo(SVMtrainMat, CV_32FC1);
 			a.id = (unsigned int)IDclassifier_small->predict(SVMtrainMat);
-#ifndef USE_ID
-			a.id = 2;
-#endif
 		}
 		if(a.id == 8)
 			a.id =0;
@@ -375,6 +373,7 @@ unsigned int ArmorDetector::getID(cv::Mat & src, Armor & a){
 			a.id = 8;
 		return a.id;
 	}
+#endif
 }
 
 void ArmorDetector::selectArmor(vector<Armor> armors, Armor &armor){
