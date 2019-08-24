@@ -53,20 +53,20 @@ qq: 690208412
 ###发射控制方案
 国赛TRoMaC英雄为大小发射共用一个云台，单个工业摄像头放置于小枪管侧上方，随云台移动。采用三种模式控制方法，第一种是优先大枪管瞄准，大子弹剩余热量小于100后小强管瞄准，第二种第三种为只控制一个枪管瞄准，打击模式的切换由操作手控制。
 
-![枪管](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/gimbla.png)
+![枪管](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/gimbla.jpg)
 
 ###控制逻辑
 控制逻辑是纯算法控制，电控负责发送云台yaw的imu角度值、pitch编码值、以及热量、系统时间、小子弹预期射速给算法，miniPC将解算检测到的装甲板偏离摄像头中心角度与云台此刻角度向加转化为云台坐标，经过预判将yaw和pitch的期望和时间发给电控，电控置期望与发射。逻辑如下图
 
-![控制逻辑](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/logic.png)
+![控制逻辑](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/logic.jpg)
 
 ---
 
 ## 3.装甲检测
 装甲检测借鉴的官方ICRA开源程序思路，利用亮度和颜色外加数字检测以提高鲁棒性，对于一幅1284x1024的完整图片，能够在6ms以内完成识别，对于640x480的图片可以在2ms以内完成识别。因为大家的装甲识别程序都相对成熟了，所以在这里不在多去叙述装甲识别的逻辑了。
 
-![装甲识别效果图1](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/detect1.png)
-![装甲识别效果图2](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/detect2.png)
+![装甲识别效果图1](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/detect1.jpg)
+![装甲识别效果图2](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/pic/detect2.jpg)
 
 ---
 
