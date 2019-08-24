@@ -1,0 +1,3 @@
+/home/tromac/program/hero/build/CMakeFiles/rebuild_cache.dir
+/home/tromac/program/hero/build/CMakeFiles/edit_cache.dir
+/home/tromac/program/hero/build/CMakeFiles/main.dir
