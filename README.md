@@ -50,12 +50,12 @@ qq: 690208412
 ---
 
 ## 2.方案介绍
-###发射控制方案
+### 发射控制方案
 国赛TRoMaC英雄为大小发射共用一个云台，单个工业摄像头放置于小枪管侧上方，随云台移动。采用三种模式控制方法，第一种是优先大枪管瞄准，大子弹剩余热量小于100后小强管瞄准，第二种第三种为只控制一个枪管瞄准，打击模式的切换由操作手控制。
 
 ![枪管](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/gimbla.jpg)
 
-###控制逻辑
+### 控制逻辑
 控制逻辑是纯算法控制，电控负责发送云台yaw的imu角度值、pitch编码值、以及热量、系统时间、小子弹预期射速给算法，miniPC将解算检测到的装甲板偏离摄像头中心角度与云台此刻角度向加转化为云台坐标，经过预判将yaw和pitch的期望和时间发给电控，电控置期望与发射。逻辑如下图
 
 ![控制逻辑](https://github.com/tokilosaya/2019TRoMaC-CV-HeroAutoAim/tree/master/logic.jpg)
